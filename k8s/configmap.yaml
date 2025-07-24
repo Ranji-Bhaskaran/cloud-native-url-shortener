@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: shortener-config
 data:
-  redis-host: redis-service
+  DATABASE_URL: postgresql://postgres:postgres@postgres:5432/shortenerdb

@@ -6,32 +6,52 @@ A full-stack URL Shortener service built using **FastAPI**, **PostgreSQL**, and 
 
 ## 📦 Features
 
-- Shorten and redirect URLs with custom slugs
-- FastAPI-based RESTful API
-- PostgreSQL for persistent storage
-- Redis for caching
-- Dockerized services for local development
-- Kubernetes deployment using `kubectl` and `helm`
-- Observability using Prometheus + Grafana
-- Minikube for local cluster
-- CI/CD ready structure
+- Shorten and redirect URLs with custom slugs  
+- FastAPI-based RESTful API  
+- PostgreSQL for persistent storage  
+- Redis for caching  
+- Dockerized services for local development  
+- Kubernetes deployment using `kubectl` and `helm`  
+- Observability using Prometheus + Grafana  
+- Minikube for local cluster  
+- CI/CD ready structure  
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** FastAPI (Python)
-- **Database:** PostgreSQL
-- **Cache:** Redis (Optional)
-- **Containerization:** Docker
-- **Orchestration:** Kubernetes + Helm
-- **Monitoring:** Prometheus + Grafana
-- **Platform:** Minikube
+- **Backend:** FastAPI (Python)  
+- **Database:** PostgreSQL  
+- **Cache:** Redis (Optional)  
+- **Containerization:** Docker  
+- **Orchestration:** Kubernetes + Helm  
+- **Monitoring:** Prometheus + Grafana  
+- **Platform:** Minikube  
 
 ---
 
 ## 📁 Project Structure
 
+```
+.
+├── app/                        # FastAPI application
+│   ├── main.py
+│   └── models.py
+├── Dockerfile
+├── requirements.txt
+├── k8s/
+│   ├── postgres-deployment.yaml
+│   ├── shortener-deployment.yaml
+│   ├── shortener-service.yaml
+│   └── prometheus/
+│       ├── prometheus-config.yaml
+│       └── prometheus-deployment.yaml
+├── helm/
+│   └── shortener-chart/
+│       ├── templates/
+│       └── values.yaml
+└── README.md
+```
 
 ---
 
@@ -39,8 +59,11 @@ A full-stack URL Shortener service built using **FastAPI**, **PostgreSQL**, and 
 
 ### 1. 🚀 Clone the Repo
 
+---
+
 ## 🧰 Setup & Deployment Steps
 
+```bash
 # 📦 Clone the Repository
 git clone https://github.com/your-username/url-shortener-k8s.git
 cd url-shortener-k8s
@@ -85,4 +108,6 @@ minikube service grafana
 # 📦 (Optional) Deploy Shortener via Helm
 cd helm/shortener-chart
 helm install shortener ./
-/
+```
+
+---

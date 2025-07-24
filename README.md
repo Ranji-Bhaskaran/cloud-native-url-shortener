@@ -39,26 +39,50 @@ A full-stack URL Shortener service built using **FastAPI**, **PostgreSQL**, and 
 
 ### 1. 🚀 Clone the Repo
 
-```bash
+## 🧰 Setup & Deployment Steps
+
+# 📦 Clone the Repository
 git clone https://github.com/your-username/url-shortener-k8s.git
 cd url-shortener-k8s
+
+# 🐳 Build & Run Docker Image Locally
 docker build -t shortener-app .
 docker run -d -p 8000:8000 --name shortener-app shortener-app
+
+# ☸️ Start Minikube Cluster
 minikube start
+
+# 🗄 Deploy PostgreSQL to Kubernetes
 kubectl apply -f k8s/postgres-deployment.yaml
+
+# 🚀 Deploy FastAPI URL Shortener App
 kubectl apply -f k8s/shortener-deployment.yaml
 kubectl apply -f k8s/shortener-service.yaml
+
+# 🌐 Access the Shortener Service
 minikube service shortener-service
+
+# 📊 Deploy Prometheus for Metrics
 kubectl apply -f k8s/prometheus/prometheus-config.yaml
 kubectl apply -f k8s/prometheus/prometheus-deployment.yaml
+
+# 🔌 Port-forward Prometheus Dashboard
 kubectl port-forward deployment/prometheus-deployment 9090:9090
+
+# 📈 Add Grafana Helm Repo
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
+# 📊 Install Grafana via Helm
 helm install grafana grafana/grafana \
   --set adminPassword=admin \
   --set service.type=NodePort
+
+# 🌐 Access Grafana Dashboard
 kubectl get svc grafana
 minikube service grafana
+
+# 📦 (Optional) Deploy Shortener via Helm
 cd helm/shortener-chart
 helm install shortener ./
+/
